@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Janab Gee</title>
+        <link rel="icon" type="image/jpeg" href="logo.jpg">
+        <style>
+            body {
+                margin: 2;
+                padding: 2;
+                overflow: auto;
+            }
+            .search-container {
+                position: absolute;
+                top: 30px;
+                left: 1000px;
+                cursor: pointer;
+            }
+            .lines {
+                position: absolute;
+                top: 10px; 
+                left: 10px; 
+                cursor: pointer;
+            }
+            .lines .line {
+                margin: 5px 0; 
+                border: 5px solid black; 
+                width: 10px; 
+            }
+            .dropdown {
+                display: none;
+                position: absolute;
+                top: 40px; 
+                left: 0; 
+                background-color: white; 
+                border: 1px solid black; 
+                z-index: 1;
+            }
+            .dropdown a {
+                display: block;
+                padding: 10px;
+                text-decoration: none;
+                color: black;
+            }
+            .dropdown a:hover {
+                background-color: #f0f0f0;
+            }
+        </style>
+        <script>
+            function toggleDropdown() {
+                const dropdown = document.getElementById('dropdown-menu');
+                dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+            }
+            function handleOptionClick(option) {
+                alert(option + ' clicked!');
+            }
+        </script>
+    </head>
+    <body>
+        <div class="lines" onclick="toggleDropdown()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <div class="dropdown" id="dropdown-menu">
+            <a href="#" onclick="handleOptionClick('Home')">Home</a>
+            <a href="#" onclick="handleOptionClick('Cart')">Cart</a>
+            <a href="#" onclick="handleOptionClick('About')">About</a>
+            <a href="#" onclick="handleOptionClick('My Account')">My Account</a>
+        </div>
+        <div class="search-container">
+            <form action="/search" method="GET">
+                <input type="text" name="query" placeholder="Search here..." required>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </body>
+</html>
